@@ -3,10 +3,7 @@
 
 namespace kollex\Converter;
 
-
-use kollex\Dataprovider\Assortment\DataProvider;
-
-class CsvConverter implements DataProvider
+class CsvConverter implements ConverterInterface
 {
     private $file;
 
@@ -15,7 +12,7 @@ class CsvConverter implements DataProvider
         $this->file = $this->openCsv($path);
     }
 
-    public function getProducts(): array
+    public function convert(): array
     {
         $assoc_array = array();
         $row = 0;

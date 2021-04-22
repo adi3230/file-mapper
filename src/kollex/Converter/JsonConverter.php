@@ -3,10 +3,7 @@
 
 namespace kollex\Converter;
 
-
-use kollex\Dataprovider\Assortment\DataProvider;
-
-class JsonConverter implements DataProvider
+class JsonConverter implements ConverterInterface
 {
     private string $file;
 
@@ -20,7 +17,7 @@ class JsonConverter implements DataProvider
         $this->file = $path;
     }
 
-    public function getProducts(): array
+    public function convert(): array
     {
         $fileContent = file_get_contents($this->file);
 

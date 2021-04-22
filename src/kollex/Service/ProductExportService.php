@@ -4,7 +4,9 @@
 namespace kollex\Service;
 
 
-class ProductExportService implements ProductExportServiceInterface
+use kollex\Dataprovider\Assortment\DataProvider;
+
+class ProductExportService implements DataProvider
 {
     private $source;
     private $mapper;
@@ -21,8 +23,8 @@ class ProductExportService implements ProductExportServiceInterface
         $this->mapper = $mapper;
     }
 
-    public function export(): string
+    public function getProducts(): array
     {
-        return json_encode($this->mapper->setData($this->source->getProducts())->map(), JSON_PRETTY_PRINT);
+        return $this->mapper->setData($this->source->convert())->map();
     }
 }

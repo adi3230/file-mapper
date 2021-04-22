@@ -14,13 +14,13 @@ $serviceB = new ProductExportService(new JsonConverter('data/wholesaler_b.json')
 echo "==============================";
 echo "<pre>";
 echo "CSV Display <br>";
-print_r($serviceA->export());
+print_r($serviceA->getProducts());
 echo "==============================";
 echo "</pre>";
 
 echo "==============================";
 echo "<pre>";
 echo "JSON Display <br>";
-print_r($serviceB->export());
+print_r($serviceB->getProducts());
 echo "==============================";
 echo "</pre>";
